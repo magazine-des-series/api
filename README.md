@@ -13,6 +13,7 @@ composer install
 
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:update --force
+php bin/console fixtures:load --fixtures app/fixtures --purge-with-truncate
 
 # Run the tests
 

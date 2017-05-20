@@ -65,6 +65,8 @@
         "behat/mink-extension": "^2.2",
         "behat/symfony2-extension": "^2.1",
         "behatch/contexts": "^2.5",
+        "doctrine/data-fixtures": "^1.2",
+        "hautelook/alice-bundle": "^1.4",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0"
     },

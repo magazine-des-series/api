@@ -1,0 +1,3 @@
+AppBundle\Entity\Job:
+    job_{1..10}:
+        title: "<jobTitle()>"

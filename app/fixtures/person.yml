@@ -1,0 +1,8 @@
+AppBundle\Entity\Person:
+    person_{1..10}:
+        birthDate: "<dateTimeBetween('-80 years', '-20 years')>"
+        deathDate: "50%? <dateTimeBetween($birthDate, 'now')>"
+        description: "<text(2000)>"
+        firstName: "<firstName()>"
+        jobs: "<numberBetween(1, 3)>x @job_*"
+        lastName: "<lastName()>"

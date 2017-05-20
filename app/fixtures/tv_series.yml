@@ -1,0 +1,5 @@
+AppBundle\Entity\TvSeries:
+    tv_series_{1..10}:
+        actors: "<numberBetween(1, 3)>x @person_*"
+        description: "<text(2000)>"
+        name: "<word>"
