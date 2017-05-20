@@ -1,0 +1,32 @@
+nelmio_cors:
+    defaults:
+        allow_headers:
+            - authorization
+            - content-type
+        allow_methods:
+            - DELETE
+            - GET
+            - OPTIONS
+            - POST
+            - PUT
+        allow_origin:
+            - "%cors_allow_origin%"
+        expose_headers:
+            - link
+        max_age: 3600
+    paths:
+        "^/": ~
+
+security:
+
+    providers:
+        in_memory:
+            memory: ~
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~

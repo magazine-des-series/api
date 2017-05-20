@@ -1,0 +1,54 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+doctrine:
+    dbal:
+        charset: UTF8
+        dbname: "%database_name%"
+        driver: pdo_mysql
+        host: "%database_host%"
+        password: "%database_password%"
+        port: "%database_port%"
+        user: "%database_user%"
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+        naming_strategy: app.doctrine.naming_strategy
+
+framework:
+    assets: ~
+    csrf_protection: false
+    default_locale: "%locale%"
+    fragments: false
+    form: false
+    http_method_override: true
+    php_errors:
+        log: true
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    secret: "%secret%"
+    serializer:
+        enable_annotations: true
+    session: false
+    templating:
+        engines:
+            - twig
+    validation:
+        enable_annotations: true
+    trusted_hosts: ~
+    trusted_proxies: ~
+
+swiftmailer:
+    host: "%mailer_host%"
+    password: "%mailer_password%"
+    spool:
+        type: memory
+    transport: "%mailer_transport%"
+    username: "%mailer_user%"
+
+twig:
+    debug: "%kernel.debug%"
+    strict_variables: "%kernel.debug%"

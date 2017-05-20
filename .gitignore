@@ -1,0 +1,17 @@
+/app/config/parameters.yml
+/bin/*
+!bin/console
+/phpunit.xml
+/var/*
+!var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+/vendor/
+/web/bundles/
+/web/config.php

@@ -1,0 +1,7 @@
+parameters:
+
+services:
+
+    app.doctrine.naming_strategy:
+        class: AppBundle\Doctrine\NamingStrategy
+        public: false
