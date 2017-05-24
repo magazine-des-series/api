@@ -8,7 +8,7 @@ use AppBundle\Entity\Person;
 
 class PersonTest extends \PHPUnit_Framework_TestCase
 {
-    public function testSetDescription() : void
+    public function testSetDescription(): void
     {
         $person = new Person();
         $person->setDescription('');

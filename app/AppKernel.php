@@ -10,7 +10,7 @@ class AppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function getCacheDir() : string
+    public function getCacheDir(): string
     {
         return dirname(__DIR__).'/var/cache/'.$this->getEnvironment();
     }
@@ -18,7 +18,7 @@ class AppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function getLogDir() : string
+    public function getLogDir(): string
     {
         return dirname(__DIR__).'/var/logs';
     }
@@ -26,7 +26,7 @@ class AppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function getRootDir() : string
+    public function getRootDir(): string
     {
         return __DIR__;
     }
@@ -34,7 +34,7 @@ class AppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function registerBundles() : array
+    public function registerBundles(): array
     {
         $bundles = [
             new ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle(),
@@ -64,7 +64,7 @@ class AppKernel extends Kernel
     /**
      * {@inheritdoc}
      */
-    public function registerContainerConfiguration(LoaderInterface $loader) : void
+    public function registerContainerConfiguration(LoaderInterface $loader): void
     {
         $loader->load($this->getRootDir().'/config/config_'.$this->getEnvironment().'.yml');
     }

@@ -41,7 +41,7 @@ class Article extends Thing
     /**
      * @param Thing $thing
      */
-    public function addMention(Thing $thing) : void
+    public function addMention(Thing $thing): void
     {
         $this->mentions[$thing->getId()] = $thing;
     }
@@ -49,7 +49,7 @@ class Article extends Thing
     /**
      * @return null|string
      */
-    public function getBody() : ? string
+    public function getBody(): ?string
     {
         return $this->body;
     }
@@ -57,7 +57,7 @@ class Article extends Thing
     /**
      * @return Thing[]
      */
-    public function getMentions() : array
+    public function getMentions(): array
     {
         return $this->mentions instanceof Collection ? $this->mentions->toArray() : $this->mentions;
     }
@@ -65,7 +65,7 @@ class Article extends Thing
     /**
      * @param Thing $thing
      */
-    public function removeMention(Thing $thing) : void
+    public function removeMention(Thing $thing): void
     {
         unset($this->mentions[$thing->getId()]);
     }
@@ -73,7 +73,7 @@ class Article extends Thing
     /**
      * @param string $body
      */
-    public function setBody(string $body) : void
+    public function setBody(string $body): void
     {
         $this->body = $body;
     }

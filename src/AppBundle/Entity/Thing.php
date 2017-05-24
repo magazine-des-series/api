@@ -45,7 +45,7 @@ abstract class Thing
     /**
      * @return Article[]
      */
-    public function getArticles() : array
+    public function getArticles(): array
     {
         return $this->articles instanceof Collection ? $this->articles->toArray() : $this->articles;
     }
@@ -53,7 +53,7 @@ abstract class Thing
     /**
      * @return null|string
      */
-    public function getId() : ? string
+    public function getId(): ?string
     {
         return $this->id;
     }

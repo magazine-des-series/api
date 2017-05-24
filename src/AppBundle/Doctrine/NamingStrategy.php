@@ -12,7 +12,7 @@ class NamingStrategy extends UnderscoreNamingStrategy
     /**
      * {@inheritdoc}
      */
-    public function classToTableName($className) : string
+    public function classToTableName($className): string
     {
         $parts = explode('_', parent::classToTableName($className));
 
@@ -26,7 +26,7 @@ class NamingStrategy extends UnderscoreNamingStrategy
     /**
      * {@inheritdoc}
      */
-    public function joinKeyColumnName($entityName, $referencedColumnName = null) : string
+    public function joinKeyColumnName($entityName, $referencedColumnName = null): string
     {
         return parent::classToTableName($entityName).'_'.($referencedColumnName ?: $this->referenceColumnName());
     }
@@ -34,7 +34,7 @@ class NamingStrategy extends UnderscoreNamingStrategy
     /**
      * {@inheritdoc}
      */
-    public function joinTableName($sourceEntity, $targetEntity, $propertyName = null) : string
+    public function joinTableName($sourceEntity, $targetEntity, $propertyName = null): string
     {
         return parent::classToTableName($sourceEntity).'_'.$this->underscore($propertyName);
     }
@@ -44,7 +44,7 @@ class NamingStrategy extends UnderscoreNamingStrategy
      *
      * @return string
      */
-    private function underscore($string) : string
+    private function underscore($string): string
     {
         return strtolower(preg_replace('`(?<=[a-z])([A-Z])`', '_$1', $string));
     }

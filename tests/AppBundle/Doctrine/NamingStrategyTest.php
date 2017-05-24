@@ -8,7 +8,7 @@ use AppBundle\Doctrine\NamingStrategy;
 
 class NamingStrategyTest extends \PHPUnit_Framework_TestCase
 {
-    public function testClassToTableName() : void
+    public function testClassToTableName(): void
     {
         $namingStrategy = new NamingStrategy();
 
@@ -19,7 +19,7 @@ class NamingStrategyTest extends \PHPUnit_Framework_TestCase
     /**
      * {@inheritdoc}
      */
-    public function testJoinKeyColumnName() : void
+    public function testJoinKeyColumnName(): void
     {
         $namingStrategy = new NamingStrategy();
 
@@ -30,7 +30,7 @@ class NamingStrategyTest extends \PHPUnit_Framework_TestCase
     /**
      * {@inheritdoc}
      */
-    public function testJoinTableName() : void
+    public function testJoinTableName(): void
     {
         $namingStrategy = new NamingStrategy();
 

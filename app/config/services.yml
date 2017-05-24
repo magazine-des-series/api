@@ -2,6 +2,30 @@ parameters:
 
 services:
 
+    api.filter.job:
+        parent: api_platform.doctrine.orm.search_filter
+        public: false
+        arguments:
+            - { title: iexact }
+        tags:
+            - { name: api_platform.filter , id: api.filter.job }
+
+    api.filter.person:
+        parent: api_platform.doctrine.orm.search_filter
+        public: false
+        arguments:
+            - { firstName: iexact , lastName: iexact }
+        tags:
+            - { name: api_platform.filter , id: api.filter.person }
+
+    api.filter.tv_series:
+        parent: api_platform.doctrine.orm.search_filter
+        public: false
+        arguments:
+            - { name: iexact }
+        tags:
+            - { name: api_platform.filter , id: api.filter.tv_series }
+
     app.doctrine.naming_strategy:
         class: AppBundle\Doctrine\NamingStrategy
         public: false

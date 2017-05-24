@@ -10,7 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource
+ * @ApiResource(
+ *     attributes={
+ *         "filters"={"api.filter.job"}
+ *     }
+ * )
  *
  * @ORM\Entity
  */
@@ -31,7 +35,7 @@ class Job extends Thing
     /**
      * @return null|string
      */
-    public function getTitle() : ? string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -39,7 +43,7 @@ class Job extends Thing
     /**
      * @param string $title
      */
-    public function setTitle(string $title) : void
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }

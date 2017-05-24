@@ -2,19 +2,23 @@
 
 declare(strict_types=1);
 
-$finder = Symfony\CS\Finder::create()
+$finder = PhpCsFixer\Finder::create()
     ->in(__DIR__.'/app')
     ->in(__DIR__.'/features')
     ->in(__DIR__.'/src')
     ->in(__DIR__.'/tests');
 
-return Symfony\CS\Config::create()
-    ->fixers(
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setFinder($finder)
+    ->setRules(
         [
-            'ordered_use',
-            'short_array_syntax',
-            'strict',
-            'strict_param',
+            '@Symfony' => true,
+            '@PHP71Migration' => true,
+            'array_syntax' => ['syntax' => 'short'],
+            'ordered_imports' => true,
+            'phpdoc_order' => true,
+            'return_type_declaration' => ['space_before' => 'none'],
         ]
     )
-    ->finder($finder);
+    ->setUsingCache(false);

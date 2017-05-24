@@ -44,7 +44,7 @@ class FeatureContext implements Context
     /**
      * @BeforeScenario @createSchema
      */
-    public function createDatabase() : void
+    public function createDatabase(): void
     {
         $this->schemaTool->createSchema($this->classes);
     }
@@ -52,7 +52,7 @@ class FeatureContext implements Context
     /**
      * @AfterScenario @dropSchema
      */
-    public function dropDatabase() : void
+    public function dropDatabase(): void
     {
         $this->schemaTool->dropSchema($this->classes);
     }

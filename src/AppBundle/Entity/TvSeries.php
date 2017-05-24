@@ -11,7 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource(iri="http://schema.org/TVSeries")
+ * @ApiResource(
+ *     attributes={
+ *         "filters"={"api.filter.tv_series"}
+ *     },
+ *     iri="http://schema.org/TVSeries"
+ * )
  *
  * @ORM\Entity
  */
@@ -52,7 +57,7 @@ class TvSeries extends Thing
     /**
      * @param Person $person
      */
-    public function addActor(Person $person) : void
+    public function addActor(Person $person): void
     {
         $this->actors[$person->getId()] = $person;
     }
@@ -60,7 +65,7 @@ class TvSeries extends Thing
     /**
      * @return Person[]
      */
-    public function getActors() : array
+    public function getActors(): array
     {
         return $this->actors instanceof Collection ? $this->actors->toArray() : $this->actors;
     }
@@ -68,7 +73,7 @@ class TvSeries extends Thing
     /**
      * @return null|string
      */
-    public function getDescription() : ? string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -76,7 +81,7 @@ class TvSeries extends Thing
     /**
      * @return null|string
      */
-    public function getName() : ? string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -84,7 +89,7 @@ class TvSeries extends Thing
     /**
      * @param Person $person
      */
-    public function removeActor(Person $person) : void
+    public function removeActor(Person $person): void
     {
         unset($this->actors[$person->getId()]);
     }
@@ -92,7 +97,7 @@ class TvSeries extends Thing
     /**
      * @param null|string $summary
      */
-    public function setDescription(? string $summary) : void
+    public function setDescription(?string $summary): void
     {
         $this->description = $summary;
         if (empty($this->description)) {
@@ -103,7 +108,7 @@ class TvSeries extends Thing
     /**
      * @param string $name
      */
-    public function setName(string $name) : void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }

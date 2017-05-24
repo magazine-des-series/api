@@ -11,7 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ApiResource(iri="http://schema.org/Person")
+ * @ApiResource(
+ *     attributes={
+ *         "filters"={"api.filter.person"}
+ *     },
+ *     iri="http://schema.org/Person"
+ * )
  *
  * @ORM\Entity
  */
@@ -21,11 +26,10 @@ class Person extends Thing
      * @ApiProperty(iri="http://schema.org/birthDate")
      *
      * @Assert\DateTime
-     * @Assert\NotBlank
      *
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(nullable=true, type="datetime")
      *
-     * @var \DateTime
+     * @var \DateTime|null
      */
     private $birthDate;
 
@@ -85,7 +89,7 @@ class Person extends Thing
     /**
      * @param Job $job
      */
-    public function addJob(Job $job) : void
+    public function addJob(Job $job): void
     {
         $this->jobs[$job->getId()] = $job;
     }
@@ -93,7 +97,7 @@ class Person extends Thing
     /**
      * @return \DateTime|null
      */
-    public function getBirthDate() : ? \DateTime
+    public function getBirthDate(): ?\DateTime
     {
         return $this->birthDate;
     }
@@ -101,7 +105,7 @@ class Person extends Thing
     /**
      * @return \DateTime|null
      */
-    public function getDeathDate() : ? \DateTime
+    public function getDeathDate(): ?\DateTime
     {
         return $this->deathDate;
     }
@@ -109,7 +113,7 @@ class Person extends Thing
     /**
      * @return null|string
      */
-    public function getDescription() : ? string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -117,7 +121,7 @@ class Person extends Thing
     /**
      * @return null|string
      */
-    public function getFirstName() : ? string
+    public function getFirstName(): ?string
     {
         return $this->firstName;
     }
@@ -125,7 +129,7 @@ class Person extends Thing
     /**
      * @return Job[]
      */
-    public function getJobs() : array
+    public function getJobs(): array
     {
         return $this->jobs instanceof Collection ? $this->jobs->toArray() : $this->jobs;
     }
@@ -133,7 +137,7 @@ class Person extends Thing
     /**
      * @return null|string
      */
-    public function getLastName() : ? string
+    public function getLastName(): ?string
     {
         return $this->lastName;
     }
@@ -141,15 +145,15 @@ class Person extends Thing
     /**
      * @param Job $job
      */
-    public function removeJob(Job $job) : void
+    public function removeJob(Job $job): void
     {
         unset($this->jobs[$job->getId()]);
     }
 
     /**
-     * @param \DateTime $birthDate
+     * @param \DateTime|null $birthDate
      */
-    public function setBirthDate(\DateTime $birthDate) : void
+    public function setBirthDate(\DateTime $birthDate = null): void
     {
         $this->birthDate = $birthDate;
     }
@@ -157,7 +161,7 @@ class Person extends Thing
     /**
      * @param \DateTime|null $deathDate
      */
-    public function setDeathDate(\DateTime $deathDate = null) : void
+    public function setDeathDate(\DateTime $deathDate = null): void
     {
         $this->deathDate = $deathDate;
     }
@@ -165,7 +169,7 @@ class Person extends Thing
     /**
      * @param null|string $description
      */
-    public function setDescription(? string $description) : void
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
         if (empty($this->description)) {
@@ -176,7 +180,7 @@ class Person extends Thing
     /**
      * @param string $firstName
      */
-    public function setFirstName(string $firstName) : void
+    public function setFirstName(string $firstName): void
     {
         $this->firstName = $firstName;
     }
@@ -184,7 +188,7 @@ class Person extends Thing
     /**
      * @param string $lastName
      */
-    public function setLastName(string $lastName) : void
+    public function setLastName(string $lastName): void
     {
         $this->lastName = $lastName;
     }
